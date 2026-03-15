@@ -1,17 +1,29 @@
 <!-- TOP NAV -->
 <header class="fixed top-0 left-0 right-0 z-50 bg-[#FBF9ED] shadow-md">
-  <div class="mx-auto px-4 sm:px-6 lg:px-10 xl:px-14 py-4 flex items-center justify-between">
+  <div
+    class="mx-auto px-4 sm:px-6 lg:px-10 xl:px-14 py-4 flex items-center justify-between"
+  >
     <a href="{{ '/' | relative_url }}">
       {% if page.url contains 'alani' %}
-        <img src="{{ '/assets/images/alani.svg' | relative_url }}" alt="Alani" class="h-6 md:h-8" />
+      <img
+        src="{{ '/assets/images/alani.svg' | relative_url }}"
+        alt="Alani"
+        class="h-6 md:h-8"
+      />
       {% elsif page.url contains 'proud-potato-peeler' %}
-        <img src="{{ '/assets/images/logo-proud-potato.svg' | relative_url }}" alt="Proud Potato" class="h-6 md:h-8" />
+      <img
+        src="{{ '/assets/images/logo-proud-potato.svg' | relative_url }}"
+        alt="Proud Potato"
+        class="h-6 md:h-8"
+      />
       {% else %}
-        <img src="{{ '/assets/images/logo-potato-heroes.svg' | relative_url }}" alt="Potato Heroes" class="h-6 md:h-8" />
+      <img
+        src="{{ '/assets/images/logo-potato-heroes.svg' | relative_url }}"
+        alt="Potato Heroes"
+        class="h-6 md:h-8"
+      />
       {% endif %}
     </a>
-    
-  
 
     <button id="menu-toggle" class="flex flex-col gap-1.5">
       <span class="block h-[2px] w-6 rounded-full bg-[#b9846a]"></span>
@@ -19,102 +31,236 @@
       <span class="block h-[2px] w-4 rounded-full bg-[#b9846a]"></span>
     </button>
   </div>
-  
+
   <!-- Drawer Menu -->
   <div id="mobile-menu" class="fixed inset-0 z-[9999] hidden">
-    <div class="absolute inset-0 bg-black bg-opacity-50" id="menu-overlay"></div>
-    <div class="absolute top-0 right-0 h-full w-80 transform translate-x-full transition-transform duration-300 overflow-y-auto" style="background-image: url('assets/images/background.png'); background-size: cover; background-position: center;">
+    <div
+      class="absolute inset-0 bg-black bg-opacity-50"
+      id="menu-overlay"
+    ></div>
+    <div
+      class="absolute top-0 right-0 h-full w-80 transform translate-x-full transition-transform duration-300 overflow-y-auto"
+      style="
+        background-image: url(&quot;assets/images/background.png&quot;);
+        background-size: cover;
+        background-position: center;
+      "
+    >
       <div class="px-8 py-8">
         <div class="flex justify-end mb-8">
           <button id="menu-close" class="text-gray-800 hover:text-[#b9846a]">
-            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+            <svg
+              class="w-8 h-8"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M6 18L18 6M6 6l12 12"
+              ></path>
             </svg>
           </button>
         </div>
-        
+
         <div class="space-y-4 mb-12 mt-16">
-          
           <!-- Alani -->
           <!-- Wrapper utama diubah jadi DIV -->
-          <div class="w-full flex items-center justify-between text-gray-800 text-xl font-bold">
+          <div
+            class="w-full flex items-center justify-between text-gray-800 text-xl font-bold"
+          >
             <!-- Teks sekarang menjadi Link -->
-            <a href="/alani.html" class="hover:text-[#b9846a] flex-grow">Alani</a>
-            
+            <a href="/alani.html" class="hover:text-[#b9846a] flex-grow"
+              >Alani</a
+            >
+
             <!-- Tombol Toggle hanya membungkus SVG -->
             <!-- ID 'alani-toggle' dipindahkan ke sini agar JS tetap jalan -->
             <button id="alani-toggle" class="p-2 hover:text-[#b9846a]">
               <svg
                 class="w-6 h-6 transform transition-transform"
                 id="alani-arrow"
-                fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M19 9l-7 7-7-7"
+                ></path>
               </svg>
             </button>
           </div>
-          
+
           <div id="alani-dropdown" class="hidden pl-4 space-y-3">
-            <a href="/alani.html#about" class="block text-base text-gray-800 hover:text-[#b9846a]">About</a>
-            <a href="/alani.html#faqs" class="block text-base text-gray-800 hover:text-[#b9846a]">FAQs</a>
-            <a href="/alani.html#gallery" class="block text-base text-gray-800 hover:text-[#b9846a]">Gallery</a>
-            <a href="/alani.html#menu" class="block text-base text-gray-800 hover:text-[#b9846a]">Menu</a>
-            <a href="/alani.html#reviews" class="block text-base text-gray-800 hover:text-[#b9846a]">Reviews</a>
-            <a href="/alani.html#findus" class="block text-base text-gray-800 hover:text-[#b9846a]">Find Us</a>
+            <a
+              href="/alani.html#about"
+              class="block text-base text-gray-800 hover:text-[#b9846a]"
+              >About</a
+            >
+            <a
+              href="/alani.html#faqs"
+              class="block text-base text-gray-800 hover:text-[#b9846a]"
+              >FAQs</a
+            >
+            <a
+              href="/alani.html#gallery"
+              class="block text-base text-gray-800 hover:text-[#b9846a]"
+              >Gallery</a
+            >
+            <a
+              href="/alani.html#menu"
+              class="block text-base text-gray-800 hover:text-[#b9846a]"
+              >Menu</a
+            >
+            <a
+              href="/alani.html#reviews"
+              class="block text-base text-gray-800 hover:text-[#b9846a]"
+              >Reviews</a
+            >
+            <a
+              href="/alani.html#findus"
+              class="block text-base text-gray-800 hover:text-[#b9846a]"
+              >Find Us</a
+            >
             <div class="space-y-2 pt-2">
-              <button class="w-full border-2 border-[#BA3914] bg-transparent text-gray-800 py-2 px-4 text-sm font-semibold hover:bg-[#BA3914] hover:text-white transition-all" style="border-radius: 16px;">Order Online</button>
-              <button class="w-full border-2 border-[#496BBB] bg-transparent text-gray-800 py-2 px-4 text-sm font-semibold hover:bg-[#496BBB] hover:text-white transition-all" style="border-radius: 16px;">Make Reservation</button>
+              <!-- <button class="w-full border-2 border-[#BA3914] bg-transparent text-gray-800 py-2 px-4 text-sm font-semibold hover:bg-[#BA3914] hover:text-white transition-all" style="border-radius: 16px;">Order Online</button> -->
+              <button
+                class="w-full border-2 border-[#496BBB] bg-transparent text-gray-800 py-2 px-4 text-sm font-semibold hover:bg-[#496BBB] hover:text-white transition-all"
+                style="border-radius: 16px"
+              >
+                Make Reservation
+              </button>
             </div>
           </div>
-          
+
           <!-- Proud Potato Peeler -->
-          <div class="w-full flex items-center justify-between text-gray-800 text-xl font-bold">
-            <a href="/proud-potato-peeler.html" class="hover:text-[#b9846a] flex-grow">Proud Potato Peeler</a>
-            
+          <div
+            class="w-full flex items-center justify-between text-gray-800 text-xl font-bold"
+          >
+            <a
+              href="/proud-potato-peeler.html"
+              class="hover:text-[#b9846a] flex-grow"
+              >Proud Potato Peeler</a
+            >
+
             <button id="potato-toggle" class="p-2 hover:text-[#b9846a]">
               <svg
                 class="w-6 h-6 transform transition-transform"
                 id="potato-arrow"
-                fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M19 9l-7 7-7-7"
+                ></path>
               </svg>
             </button>
           </div>
 
           <div id="potato-dropdown" class="hidden pl-4 space-y-3">
-            <a href="/proud-potato-peeler.html#about" class="block text-base text-gray-800 hover:text-[#b9846a]">About</a>
-            <a href="/proud-potato-peeler.html#faqs" class="block text-base text-gray-800 hover:text-[#b9846a]">FAQs</a>
-            <a href="/proud-potato-peeler.html#gallery" class="block text-base text-gray-800 hover:text-[#b9846a]">Gallery</a>
-            <a href="/proud-potato-peeler.html#menu" class="block text-base text-gray-800 hover:text-[#b9846a]">Menu</a>
-            <a href="/proud-potato-peeler.html#reviews" class="block text-base text-gray-800 hover:text-[#b9846a]">Reviews</a>
-            <a href="/proud-potato-peeler.html#findus" class="block text-base text-gray-800 hover:text-[#b9846a]">Find Us</a>
+            <a
+              href="/proud-potato-peeler.html#about"
+              class="block text-base text-gray-800 hover:text-[#b9846a]"
+              >About</a
+            >
+            <a
+              href="/proud-potato-peeler.html#faqs"
+              class="block text-base text-gray-800 hover:text-[#b9846a]"
+              >FAQs</a
+            >
+            <a
+              href="/proud-potato-peeler.html#gallery"
+              class="block text-base text-gray-800 hover:text-[#b9846a]"
+              >Gallery</a
+            >
+            <a
+              href="/proud-potato-peeler.html#menu"
+              class="block text-base text-gray-800 hover:text-[#b9846a]"
+              >Menu</a
+            >
+            <a
+              href="/proud-potato-peeler.html#reviews"
+              class="block text-base text-gray-800 hover:text-[#b9846a]"
+              >Reviews</a
+            >
+            <a
+              href="/proud-potato-peeler.html#findus"
+              class="block text-base text-gray-800 hover:text-[#b9846a]"
+              >Find Us</a
+            >
             <div class="space-y-2 pt-2">
-              <button class="w-full border-2 border-[#BA3914] bg-transparent text-gray-800 py-2 px-4 text-sm font-semibold hover:bg-[#BA3914] hover:text-white transition-all" style="border-radius: 16px;">Order Online</button>
-              <button class="w-full border-2 border-[#496BBB] bg-transparent text-gray-800 py-2 px-4 text-sm font-semibold hover:bg-[#496BBB] hover:text-white transition-all" style="border-radius: 16px;">Make Reservation</button>
+              <button
+                class="w-full border-2 border-[#BA3914] bg-transparent text-gray-800 py-2 px-4 text-sm font-semibold hover:bg-[#BA3914] hover:text-white transition-all"
+                style="border-radius: 16px"
+              >
+                Order Online
+              </button>
+              <button
+                class="w-full border-2 border-[#496BBB] bg-transparent text-gray-800 py-2 px-4 text-sm font-semibold hover:bg-[#496BBB] hover:text-white transition-all"
+                style="border-radius: 16px"
+              >
+                Make Reservation
+              </button>
             </div>
           </div>
-          
+
           <!-- Proud Perfect Potions -->
-          <div class="w-full flex items-center justify-between text-gray-800 text-xl font-bold">
-            <a href="/proud-perfect-potions.html" class="hover:text-[#b9846a] flex-grow">Proud Perfect Potions</a>
-            
+          <div
+            class="w-full flex items-center justify-between text-gray-800 text-xl font-bold"
+          >
+            <a
+              href="/proud-perfect-potions.html"
+              class="hover:text-[#b9846a] flex-grow"
+              >Proud Perfect Potions</a
+            >
+
             <button id="potions-toggle" class="p-2 hover:text-[#b9846a]">
               <svg
                 class="w-6 h-6 transform transition-transform"
                 id="potions-arrow"
-                fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M19 9l-7 7-7-7"
+                ></path>
               </svg>
             </button>
           </div>
 
           <div id="potions-dropdown" class="hidden pl-4 space-y-3">
-            <a href="/proud-perfect-potions.html" class="block text-base text-gray-800 hover:text-[#b9846a]">Coming Soon</a>
+            <a
+              href="/proud-perfect-potions.html"
+              class="block text-base text-gray-800 hover:text-[#b9846a]"
+              >Coming Soon</a
+            >
           </div>
         </div>
-        
+
         <div class="flex justify-around">
-          <a href="/career.html" class="text-gray-800 text-xl font-bold hover:text-[#b9846a]">Career</a>
-          <a href="/contact.html" class="text-gray-800 text-xl font-bold hover:text-[#b9846a]">Contact</a>
+          <a
+            href="/career.html"
+            class="text-gray-800 text-xl font-bold hover:text-[#b9846a]"
+            >Career</a
+          >
+          <a
+            href="/contact.html"
+            class="text-gray-800 text-xl font-bold hover:text-[#b9846a]"
+            >Contact</a
+          >
         </div>
       </div>
     </div>
@@ -123,100 +269,100 @@
 
 <script>
   // Smooth scroll
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-      const href = this.getAttribute('href');
-      if (href.includes('#')) {
-        const targetId = href.split('#')[1];
+  document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+    anchor.addEventListener("click", function (e) {
+      const href = this.getAttribute("href");
+      if (href.includes("#")) {
+        const targetId = href.split("#")[1];
         const targetElement = document.getElementById(targetId);
         if (targetElement) {
           e.preventDefault();
-          targetElement.scrollIntoView({ behavior: 'smooth' });
+          targetElement.scrollIntoView({ behavior: "smooth" });
           closeMenu();
         }
       }
     });
   });
-  
-  const menuToggle = document.getElementById('menu-toggle');
-  const menuClose = document.getElementById('menu-close');
-  const menu = document.getElementById('mobile-menu');
-  const menuOverlay = document.getElementById('menu-overlay');
-  const drawer = menu.querySelector('.transform');
-  
+
+  const menuToggle = document.getElementById("menu-toggle");
+  const menuClose = document.getElementById("menu-close");
+  const menu = document.getElementById("mobile-menu");
+  const menuOverlay = document.getElementById("menu-overlay");
+  const drawer = menu.querySelector(".transform");
+
   function openMenu() {
-    menu.classList.remove('hidden');
-    document.body.style.overflow = 'hidden';
-    setTimeout(() => drawer.classList.remove('translate-x-full'), 10);
+    menu.classList.remove("hidden");
+    document.body.style.overflow = "hidden";
+    setTimeout(() => drawer.classList.remove("translate-x-full"), 10);
   }
-  
+
   function closeMenu() {
-    drawer.classList.add('translate-x-full');
-    document.body.style.overflow = '';
-    setTimeout(() => menu.classList.add('hidden'), 300);
+    drawer.classList.add("translate-x-full");
+    document.body.style.overflow = "";
+    setTimeout(() => menu.classList.add("hidden"), 300);
   }
-  
-  menuToggle.addEventListener('click', openMenu);
-  menuClose.addEventListener('click', closeMenu);
-  menuOverlay.addEventListener('click', closeMenu);
-  
+
+  menuToggle.addEventListener("click", openMenu);
+  menuClose.addEventListener("click", closeMenu);
+  menuOverlay.addEventListener("click", closeMenu);
+
   // Dropdown toggles
-  const alaniToggle = document.getElementById('alani-toggle');
-  const alaniDropdown = document.getElementById('alani-dropdown');
-  const alaniArrow = document.getElementById('alani-arrow');
-  const potatoToggle = document.getElementById('potato-toggle');
-  const potatoDropdown = document.getElementById('potato-dropdown');
-  const potatoArrow = document.getElementById('potato-arrow');
-  const potionsToggle = document.getElementById('potions-toggle');
-  const potionsDropdown = document.getElementById('potions-dropdown');
-  const potionsArrow = document.getElementById('potions-arrow');
-  
-  alaniToggle.addEventListener('click', function() {
-    alaniDropdown.classList.toggle('hidden');
-    alaniArrow.classList.toggle('rotate-180');
-    if (!alaniDropdown.classList.contains('hidden')) {
-      potatoDropdown.classList.add('hidden');
-      potatoArrow.classList.remove('rotate-180');
-      potionsDropdown.classList.add('hidden');
-      potionsArrow.classList.remove('rotate-180');
+  const alaniToggle = document.getElementById("alani-toggle");
+  const alaniDropdown = document.getElementById("alani-dropdown");
+  const alaniArrow = document.getElementById("alani-arrow");
+  const potatoToggle = document.getElementById("potato-toggle");
+  const potatoDropdown = document.getElementById("potato-dropdown");
+  const potatoArrow = document.getElementById("potato-arrow");
+  const potionsToggle = document.getElementById("potions-toggle");
+  const potionsDropdown = document.getElementById("potions-dropdown");
+  const potionsArrow = document.getElementById("potions-arrow");
+
+  alaniToggle.addEventListener("click", function () {
+    alaniDropdown.classList.toggle("hidden");
+    alaniArrow.classList.toggle("rotate-180");
+    if (!alaniDropdown.classList.contains("hidden")) {
+      potatoDropdown.classList.add("hidden");
+      potatoArrow.classList.remove("rotate-180");
+      potionsDropdown.classList.add("hidden");
+      potionsArrow.classList.remove("rotate-180");
     }
   });
-  
-  potatoToggle.addEventListener('click', function() {
-    potatoDropdown.classList.toggle('hidden');
-    potatoArrow.classList.toggle('rotate-180');
-    if (!potatoDropdown.classList.contains('hidden')) {
-      alaniDropdown.classList.add('hidden');
-      alaniArrow.classList.remove('rotate-180');
-      potionsDropdown.classList.add('hidden');
-      potionsArrow.classList.remove('rotate-180');
+
+  potatoToggle.addEventListener("click", function () {
+    potatoDropdown.classList.toggle("hidden");
+    potatoArrow.classList.toggle("rotate-180");
+    if (!potatoDropdown.classList.contains("hidden")) {
+      alaniDropdown.classList.add("hidden");
+      alaniArrow.classList.remove("rotate-180");
+      potionsDropdown.classList.add("hidden");
+      potionsArrow.classList.remove("rotate-180");
     }
   });
-  
-  potionsToggle.addEventListener('click', function() {
-    potionsDropdown.classList.toggle('hidden');
-    potionsArrow.classList.toggle('rotate-180');
-    if (!potionsDropdown.classList.contains('hidden')) {
-      alaniDropdown.classList.add('hidden');
-      alaniArrow.classList.remove('rotate-180');
-      potatoDropdown.classList.add('hidden');
-      potatoArrow.classList.remove('rotate-180');
+
+  potionsToggle.addEventListener("click", function () {
+    potionsDropdown.classList.toggle("hidden");
+    potionsArrow.classList.toggle("rotate-180");
+    if (!potionsDropdown.classList.contains("hidden")) {
+      alaniDropdown.classList.add("hidden");
+      alaniArrow.classList.remove("rotate-180");
+      potatoDropdown.classList.add("hidden");
+      potatoArrow.classList.remove("rotate-180");
     }
   });
 
   // === AUTO OPEN SESUAI URL (DEFAULT STATE) ===
   (function () {
-    const currentUrl = '{{ page.url | downcase }}';
+    const currentUrl = "{{ page.url | downcase }}";
 
-    if (currentUrl.includes('alani')) {
-      alaniDropdown.classList.remove('hidden');
-      alaniArrow.classList.add('rotate-180');
-    } else if (currentUrl.includes('proud-potato-peeler')) {
-      potatoDropdown.classList.remove('hidden');
-      potatoArrow.classList.add('rotate-180');
-    } else if (currentUrl.includes('proud-perfect-potions')) {
-      potionsDropdown.classList.remove('hidden');
-      potionsArrow.classList.add('rotate-180');
+    if (currentUrl.includes("alani")) {
+      alaniDropdown.classList.remove("hidden");
+      alaniArrow.classList.add("rotate-180");
+    } else if (currentUrl.includes("proud-potato-peeler")) {
+      potatoDropdown.classList.remove("hidden");
+      potatoArrow.classList.add("rotate-180");
+    } else if (currentUrl.includes("proud-perfect-potions")) {
+      potionsDropdown.classList.remove("hidden");
+      potionsArrow.classList.add("rotate-180");
     }
   })();
 </script>
