@@ -55,10 +55,20 @@
       </div>
 
       <!-- Quick Links -->
-      <div class="grid grid-cols-1 gap-8 md:grid-cols-[240px_1fr]">
+      <div class="grid grid-cols-1 md:grid-cols-[240px_1fr] gap-8">
+        <!-- empty left column for spacing -->
         <div></div>
-        <div class="border-l-4 border-[#b9846a] pl-8">
-          <div class="flex gap-16">
+
+        <div class="border-l-4 border-[#b9846a] pl-4 md:pl-8">
+          <div
+            class="flex flex-col md:flex-row gap-4 md:gap-16 items-center md:items-start justify-center md:justify-start"
+          >
+            <a
+              href="/daily-heroes.html"
+              class="text-lg font-bold text-black hover:text-[#b9846a] transition-colors"
+            >
+              The Daily Heroes
+            </a>
             <a
               href="/career.html"
               class="text-lg font-bold text-black hover:text-[#b9846a] transition-colors"

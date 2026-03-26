@@ -3,151 +3,334 @@ layout: blank
 title: Home
 ---
 
-<!-- LOADING SCREEN -->
-<div id="loader" class="loader">
-  <div class="loader__overlay"></div>
+<!-- ENTRY SCREEN: TWO BUTTONS -->
+<div id="entry-screen" class="entry-screen">
+  <div class="entry-screen__overlay"></div>
 
-  <div class="loader__logo-wrap">
+  <div class="entry-screen__content">
     <img
       src="{{ '/assets/images/the-potato-heroes.svg' | relative_url }}"
       alt="The Potato Heroes"
-      class="loader__logo"
+      class="entry-screen__logo mx-auto block"
     />
-  </div>
 
-  <div class="loader__bar">
-    <div class="loader__bar-fill"></div>
+    <div class="entry-screen__buttons">
+      <button id="btn-daily-heroes" class="entry-btn entry-btn--daily">
+        THE DAILY HEROES
+      </button>
+      <button id="btn-projects" class="entry-btn entry-btn--projects">
+        THE PROJECTS
+      </button>
+    </div>
   </div>
 </div>
 
-<!-- HERO SCREEN: 3 PANEL -->
-<section id="hero-screen" class="min-h-screen bg-black text-white">
-  <div class="brand-strip" data-brand-strip>
-    <!-- ========== ALANI ========== -->
-    <article class="brand-panel brand-panel--alani" data-panel="alani">
-      <div class="brand-panel__image-wrap">
-        <img
-          src="{{ '/assets/images/2KY_1729.jpg' | relative_url }}"
-          alt="Alani"
-          class="brand-panel__image"
-          style="object-position: bottom"
-        />
-      </div>
-
-      <div class="brand-panel__scrim-top"></div>
-      <div class="brand-panel__scrim-bottom"></div>
-
-      <div class="brand-panel__content">
-        <div class="brand-panel__meta-row">
-          <!-- <span>01</span>
-          <span>Alani</span> -->
-        </div>
-
-        <div class="brand-panel__title-block">
-          <img
-            src="{{ '/assets/images/alani.svg' | relative_url }}"
-            alt="Alani logo"
-            class="brand-panel__logo"
-          />
-          <p class="brand-panel__body">
-            Where mornings smell like butter and warm air. Alani celebrates the
-            art of slow baking with handcrafted sourdoughs, pastries, and
-            sweets—made fresh every day with a touch of playfulness and a whole
-            lot of heart.
-          </p>
-          <a
-            href="{{ '/alani.html' | relative_url }}"
-            class="brand-panel__button"
-          >
-            Find Out More
-          </a>
-        </div>
-      </div>
-    </article>
-
-    <!-- ========== PROUD POTATO PEELER ========== -->
-    <article class="brand-panel brand-panel--peeler" data-panel="peeler">
-      <div class="brand-panel__image-wrap">
-        <img
-          src="{{ '/assets/images/2KY_1748.webp' | relative_url }}"
-          alt="Proud Potato Peeler"
-          class="brand-panel__image brightness-[.80]"
-        />
-      </div>
-
-      <div class="brand-panel__scrim-top"></div>
-      <div class="brand-panel__scrim-bottom"></div>
-
-      <div class="brand-panel__content">
-        <div class="brand-panel__meta-row">
-          <!-- <span>02</span>
-          <span>Proud Potato Peeler</span> -->
-        </div>
-
-        <div class="brand-panel__title-block">
-          <img
-            src="{{ '/assets/images/proud-potato-peeler.svg' | relative_url }}"
-            alt="Proud Potato Peeler logo"
-            class="brand-panel__logo"
-          />
-
-          <p class="brand-panel__body">
-            Born from a simple potato and a big dream, Proud Potato Peeler
-            celebrates honest food with bold flavors and a touch of nostalgia.
-            It’s a place where global inspirations meet heartwarming
-            hospitality—all served with a wink of creativity from Chef Alberto.
-          </p>
-
-          <a
-            href="{{ '/proud-potato-peeler.html' | relative_url }}"
-            class="brand-panel__button"
-          >
-            Find Out More
-          </a>
-        </div>
-      </div>
-    </article>
-
-    <!-- ========== PROUD PERFECT POTION ========== -->
-    <article class="brand-panel brand-panel--potion" data-panel="potion">
-      <div class="brand-panel__image-wrap">
-        <img
-          src="{{ '/assets/images/blue-bar3.jpg' | relative_url }}"
-          alt="Proud Perfect Potion"
-          class="brand-panel__image"
-        />
-      </div>
-
-      <div class="brand-panel__scrim-top"></div>
-      <div class="brand-panel__scrim-bottom"></div>
-
-      <div class="brand-panel__content">
-        <div class="brand-panel__meta-row">
-          <!-- <span>03</span>
-          <span>Perfect Potion</span> -->
-        </div>
-
-        <div class="brand-panel__title-block">
-          <img
-            src="{{ '/assets/images/proud-perfect-potion.svg' | relative_url }}"
-            alt="Proud Perfect Potion logo"
-            class="brand-panel__logo"
-          />
-
-          <p class="brand-panel__body">
-            Coming soon—a bar where culinary creativity meets mixology magic.
-            Proud Perfect Potion will craft chef-inspired cocktails that blend
-            flavor, precision, and play. Expect drinks that are shaken, stirred,
-            and full of surprises—an experience worth toasting to.
-          </p>
-          <a
-            href="{{ '/proud-perfect-potions.html' | relative_url }}"
-            class="brand-panel__button"
-          >
-            Find Out More
-          </a>
-        </div>
-      </div>
-    </article>
+<!-- MAIN CONTENT (initially hidden) - THIS IS FOR THE 3-PANEL CONTENT IF NEEDED -->
+<div id="main-content" class="main-content hidden">
+  <!-- LOADING SCREEN -->
+  <div id="loader" class="loader">
+    <div class="loader__overlay"></div>
+    <div class="loader__logo-wrap">
+      <img
+        src="{{ '/assets/images/the-potato-heroes.svg' | relative_url }}"
+        alt="The Potato Heroes"
+        class="loader__logo"
+      />
+    </div>
+    <div class="loader__bar">
+      <div class="loader__bar-fill"></div>
+    </div>
   </div>
-</section>
+
+  <!-- HERO SCREEN: 3 PANEL -->
+  <section id="hero-screen" class="min-h-screen bg-black text-white">
+    <div class="brand-strip" data-brand-strip>
+      <!-- ========== ALANI ========== -->
+      <article class="brand-panel brand-panel--alani" data-panel="alani">
+        <div class="brand-panel__image-wrap">
+          <img
+            src="{{ '/assets/images/2KY_1729.jpg' | relative_url }}"
+            alt="Alani"
+            class="brand-panel__image"
+            style="object-position: bottom"
+          />
+        </div>
+
+        <div class="brand-panel__scrim-top"></div>
+        <div class="brand-panel__scrim-bottom"></div>
+
+        <div class="brand-panel__content">
+          <div class="brand-panel__meta-row"></div>
+          <div class="brand-panel__title-block">
+            <img
+              src="{{ '/assets/images/alani.svg' | relative_url }}"
+              alt="Alani logo"
+              class="brand-panel__logo"
+            />
+            <p class="brand-panel__body">
+              Where mornings smell like butter and warm air. Alani celebrates
+              the art of slow baking with handcrafted sourdoughs, pastries, and
+              sweets—made fresh every day with a touch of playfulness and a
+              whole lot of heart.
+            </p>
+            <a
+              href="{{ '/alani.html' | relative_url }}"
+              class="brand-panel__button"
+            >
+              Find Out More
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <!-- ========== PROUD POTATO PEELER ========== -->
+      <article class="brand-panel brand-panel--peeler" data-panel="peeler">
+        <div class="brand-panel__image-wrap">
+          <img
+            src="{{ '/assets/images/2KY_1748.webp' | relative_url }}"
+            alt="Proud Potato Peeler"
+            class="brand-panel__image brightness-[.80]"
+          />
+        </div>
+
+        <div class="brand-panel__scrim-top"></div>
+        <div class="brand-panel__scrim-bottom"></div>
+
+        <div class="brand-panel__content">
+          <div class="brand-panel__meta-row"></div>
+          <div class="brand-panel__title-block">
+            <img
+              src="{{ '/assets/images/proud-potato-peeler.svg' | relative_url }}"
+              alt="Proud Potato Peeler logo"
+              class="brand-panel__logo"
+            />
+            <p class="brand-panel__body">
+              Born from a simple potato and a big dream, Proud Potato Peeler
+              celebrates honest food with bold flavors and a touch of nostalgia.
+              It's a place where global inspirations meet heartwarming
+              hospitality—all served with a wink of creativity from Chef
+              Alberto.
+            </p>
+            <a
+              href="{{ '/proud-potato-peeler.html' | relative_url }}"
+              class="brand-panel__button"
+            >
+              Find Out More
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <!-- ========== PROUD PERFECT POTION ========== -->
+      <article class="brand-panel brand-panel--potion" data-panel="potion">
+        <div class="brand-panel__image-wrap">
+          <img
+            src="{{ '/assets/images/blue-bar3.jpg' | relative_url }}"
+            alt="Proud Perfect Potion"
+            class="brand-panel__image"
+          />
+        </div>
+
+        <div class="brand-panel__scrim-top"></div>
+        <div class="brand-panel__scrim-bottom"></div>
+
+        <div class="brand-panel__content">
+          <div class="brand-panel__meta-row"></div>
+          <div class="brand-panel__title-block">
+            <img
+              src="{{ '/assets/images/proud-perfect-potion.svg' | relative_url }}"
+              alt="Proud Perfect Potion logo"
+              class="brand-panel__logo"
+            />
+            <p class="brand-panel__body">
+              Coming soon—a bar where culinary creativity meets mixology magic.
+              Proud Perfect Potion will craft chef-inspired cocktails that blend
+              flavor, precision, and play. Expect drinks that are shaken,
+              stirred, and full of surprises—an experience worth toasting to.
+            </p>
+            <a
+              href="{{ '/proud-perfect-potions.html' | relative_url }}"
+              class="brand-panel__button"
+            >
+              Find Out More
+            </a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+</div>
+
+<style>
+  /* ====== ENTRY SCREEN STYLES ====== */
+  .entry-screen {
+    position: fixed;
+    inset: 0;
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--potato-bg, #fbf9ed);
+    background-image: url("../assets/images/background.webp");
+    background-size: cover;
+    background-position: center;
+    transition:
+      opacity 0.6s cubic-bezier(0.2, 0.9, 0.4, 1.1),
+      visibility 0.6s;
+  }
+
+  .entry-screen__overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.04);
+    mix-blend-mode: multiply;
+  }
+
+  .entry-screen__content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding: 2rem;
+    max-width: 700px;
+    width: 90%;
+  }
+
+  .entry-screen__logo {
+    width: min(320px, 70vw);
+    margin-bottom: 3rem;
+    animation: logoFadeIn 0.8s ease-out forwards;
+    filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.1));
+  }
+
+  @keyframes logoFadeIn {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .entry-screen__buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    justify-content: center;
+    margin-top: 1rem;
+  }
+
+  .entry-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem 2.5rem;
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 60px;
+    transition: all 0.35s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+    cursor: pointer;
+    font-family: inherit;
+    border: 2px solid var(--potato-brown, #7b3a26);
+    background: transparent;
+    color: var(--potato-brown, #7b3a26);
+  }
+
+  .entry-btn--daily {
+    background: var(--potato-brown, #7b3a26);
+    color: #fbf9ed;
+    border: 2px solid var(--potato-brown, #7b3a26);
+    box-shadow: 0 8px 20px rgba(123, 58, 38, 0.25);
+  }
+
+  .entry-btn--daily:hover {
+    background: transparent;
+    color: var(--potato-brown, #7b3a26);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 28px rgba(123, 58, 38, 0.2);
+  }
+
+  .entry-btn--projects {
+    background: transparent;
+    color: var(--potato-brown, #7b3a26);
+    border: 2px solid var(--potato-brown, #7b3a26);
+  }
+
+  .entry-btn--projects:hover {
+    background: var(--potato-brown, #7b3a26);
+    color: #fbf9ed;
+    transform: translateY(-4px);
+    box-shadow: 0 12px 28px rgba(123, 58, 38, 0.2);
+  }
+
+  /* ====== MAIN CONTENT HIDDEN STATE ====== */
+  .main-content {
+    opacity: 0;
+    transition: opacity 0.7s ease;
+  }
+
+  .main-content.visible {
+    opacity: 1;
+  }
+
+  .main-content.hidden {
+    display: none;
+  }
+
+  /* Ensure loader and hero screen work properly */
+  body:not(.is-loaded) #hero-screen {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  body.is-loaded #hero-screen {
+    opacity: 1;
+    transition: opacity 0.7s ease;
+  }
+
+  /* Entry screen hide animation */
+  .entry-screen.hide {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 640px) {
+    .entry-btn {
+      padding: 0.8rem 1.8rem;
+      font-size: 0.75rem;
+      letter-spacing: 0.12em;
+    }
+    .entry-screen__buttons {
+      gap: 1rem;
+    }
+  }
+</style>
+
+<script>
+  (function () {
+    const entryScreen = document.getElementById("entry-screen");
+    const mainContent = document.getElementById("main-content");
+    const btnDaily = document.getElementById("btn-daily-heroes");
+    const btnProjects = document.getElementById("btn-projects");
+
+    // DAILY HEROES: Navigate to daily-heroes.html
+    function goToDailyHeroes() {
+      window.location.href = "{{ '/daily-heroes.html' | relative_url }}";
+    }
+
+    // PROJECTS: Navigate to the-projects.html
+    function goToProjects() {
+      window.location.href = "{{ '/the-projects.html' | relative_url }}";
+    }
+
+    // Attach event listeners
+    if (btnDaily) btnDaily.addEventListener("click", goToDailyHeroes);
+    if (btnProjects) btnProjects.addEventListener("click", goToProjects);
+  })();
+</script>
