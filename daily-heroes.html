@@ -1,216 +1,154 @@
 ---
 layout: blank
 title: The Daily Heroes
+
+team:
+  - name: Chef Alberto
+    nickname: Tettos
+    role: Creator & Founder
+    image: /assets/images/team/Alberto.webp
+    bio: |
+      Behind all three of our exciting projects is a chef who never sleeps and is always, at heart, an explorer.
+      
+      With over 20 years of experience in the food and beverage industry across the globe, he embodies flexibility and dynamism while being the mastermind behind all the fun moments we share.
+      
+      His love and passion for food shine through every curated concept.
+      
+      A deep-rooted nomad, he skillfully blends modern and traditional recipes and ingredients to create truly unique dining experiences.
+      
+      His motto? "Food is togetherness."
+    layout: left
+
+  - name: Geraldine
+    nickname: Gigi
+    role: Co-Founder & Voice of Our Projects
+    image: /assets/images/team/Gigi.webp
+    bio: |
+      While our chef expresses his passion through food, Gigi brings it to life through words. 
+      
+      As the co-founder, she’s the heartbeat of our endeavors. Known for her incredible multitasking skills and problem-solving prowess, she manages both the back of house (BOH) and front of house (FOH) operations. 
+      
+      You might even catch her strolling around with a glass of wine, ensuring that the good vibes are flowing just right!
+    layout: right
+
+  - name: Jeanette
+    nickname: JJ
+    role: The Hospitality Queen
+    image: /assets/images/team/JJ.webp
+    bio: |
+      What JJ is most known for? Her unmatched hospitality! With her biggest and warmest smile, she greets every guest like a friend, genuinely caring about their dining experience with us. 
+      
+      Her superpower? A laughter that fills the room! With nearly three years on the team, her vibrant personality is a beacon of cheer that brightens our space.
+    layout: left
+
+  - name: Mr. Gan
+    role: Operations Manager
+    image: /assets/images/team/Gan.webp
+    bio: |
+      The newest addition to our team, Mr. Gan brings decades of experience in the food and beverage industry from Singapore and Malaysia. 
+      
+      As the operations manager, he coordinates all our projects to ensure smooth operations and inspires the team to consistently deliver exceptional results for our guests.
+    layout: right
 ---
 
 {% include navbar.html %}
+
 <!-- HERO BANNER -->
-<section
-  class="relative h-[100vh] flex items-center overflow-hidden justify-center"
->
+<section class="relative h-[100vh] flex items-center overflow-hidden justify-center">
   <div
     class="absolute inset-0 bg-cover bg-center bg-no-repeat"
-    style="background-image: url('{{ '/assets/images/2KY_2423.jpg' | relative_url }}');"
+    style="background-image: url('{{ '/assets/images/team/team-hero.webp' | relative_url }}');"
   >
     <div class="absolute inset-0 bg-black bg-opacity-40"></div>
   </div>
-  <div
-    class="relative z-10 text-center text-white"
-    style="font-family: Montserrat"
-  >
-    <h1
-      class="text-6xl md:text-8xl font-bold tracking-wider"
-      style="font-family: Montserrat"
-    >
+
+  <div class="relative z-10 text-center text-white">
+    <h1 class="text-6xl md:text-8xl font-bold tracking-wider">
       THE DAILY HEROES
     </h1>
   </div>
 </section>
 
 <!-- TEAM INTRO -->
-<section class="py-16 md:py-20 bg-[#FBF9ED]">
-  <div class="mx-auto max-w-5xl px-6 lg:px-8">
-    <div class="text-center">
-      <h2
-        class="text-3xl md:text-5xl lg:text-6xl font-bold text-[#2c1810] mb-6"
-      >
-        We Don't Just Make Food
-      </h2>
-      <p class="text-xl md:text-2xl text-[#7A4634] font-medium">
-        We make people happy.
-      </p>
-    </div>
+<section class="py-12 md:pt-20 bg-[#FBF9ED]">
+  <div class="mx-auto max-w-5xl px-6 lg:px-8 text-center">
+    <h2 class="text-3xl md:text-5xl lg:text-6xl font-bold text-[#2c1810] mb-6">
+      We Don't Just Make Food
+    </h2>
+    <p class="text-xl md:text-2xl text-[#7A4634] font-medium mb-4">
+      We make people happy.
+    </p>
   </div>
 </section>
 
-<!-- TEAM MEMBERS SECTION - TEXT ONLY WITH ALTERNATING LAYOUT -->
-<section class="py-12 md:py-20 bg-[#FBF9ED]">
+<!-- TEAM MEMBERS | Tablet - Desktop -->
+<section class="py-12 bg-[#FBF9ED]">
   <div class="mx-auto max-w-5xl px-6 lg:px-8">
-    <!-- Chef Alberto aka Tettos -->
-    <div class="mb-20 md:mb-28" data-aos="fade-up" data-aos-offset="200">
-      <div class="max-w-3xl mx-auto">
-        <div class="border-l-4 border-[#7A4634] pl-6 md:pl-8">
-          <h2
-            class="text-3xl md:text-4xl lg:text-5xl font-bold text-[#2c1810] mb-2"
-          >
-            Chef Alberto
-          </h2>
-          <p class="text-xl md:text-2xl text-[#7A4634] font-semibold mb-2">
-            aka Tettos
-          </p>
-          <p class="text-sm text-[#7A4634] uppercase tracking-wider mb-6">
-            Creator & Founder
-          </p>
-          <div class="space-y-4 text-gray-700 leading-relaxed">
-            <p>
-              Behind all three of our exciting projects is a chef who never
-              sleeps and is always, at heart, an explorer. With over 20 years of
-              experience in the food and beverage industry across the globe, he
-              embodies flexibility and dynamism while being the mastermind
-              behind all the fun moments we share.
+
+    {% for member in page.team %}
+    {% assign is_even = forloop.index0 | modulo: 2 %}
+
+    <div class="mb-20">
+      <div class="grid md:grid-cols-2 gap-8 items-center">
+
+        {% if is_even == 0 %}
+          <!-- IMAGE LEFT -->
+          <img
+            src="{{ member.image | relative_url }}"
+            class="w-full aspect-[4/3] object-cover rounded-lg shadow-lg"
+            alt="{{ member.name }}"
+          />
+
+          <!-- TEXT RIGHT -->
+          <div class="">
+        {% else %}
+          <!-- TEXT LEFT -->
+          <div class="md:text-right">
+        {% endif %}
+
+            <h2 class="text-3xl md:text-5xl font-bold text-[#2c1810] mb-2">
+              {{ member.name }}
+            </h2>
+
+            {% if member.nickname %}
+            <p class="text-xl text-[#7A4634] mb-2">
+              aka {{ member.nickname }}
             </p>
-            <p>
-              His love and passion for food shine through every curated concept.
-              A deep-rooted nomad, he skillfully blends modern and traditional
-              recipes and ingredients to create truly unique dining experiences.
+            {% endif %}
+
+            <p class="text-sm text-[#7A4634] uppercase mb-6">
+              {{ member.role }}
             </p>
-            <p class="italic font-medium text-[#7A4634]">
-              His motto? "Food is togetherness."
+
+            <p class="text-gray-700">
+              {{ member.bio | newline_to_br }}
             </p>
           </div>
-        </div>
+
+        {% if is_even != 0 %}
+          <!-- IMAGE RIGHT -->
+          <img
+            src="{{ member.image | relative_url }}"
+            class="order-1 md:order-2 w-full aspect-[4/3] object-cover rounded-lg shadow-lg"
+            alt="{{ member.name }}"
+          />
+        {% endif %}
+
       </div>
     </div>
 
-    <!-- Geraldine aka Gigi -->
-    <div
-      class="mb-20 md:mb-28"
-      data-aos="fade-up"
-      data-aos-offset="200"
-      data-aos-delay="100"
-    >
-      <div class="max-w-3xl mx-auto">
-        <div class="border-r-4 border-[#7A4634] pr-6 md:pr-8 md:text-right">
-          <h2
-            class="text-3xl md:text-4xl lg:text-5xl font-bold text-[#2c1810] mb-2"
-          >
-            Geraldine
-          </h2>
-          <p class="text-xl md:text-2xl text-[#7A4634] font-semibold mb-2">
-            aka Gigi
-          </p>
-          <p class="text-sm text-[#7A4634] uppercase tracking-wider mb-6">
-            Co-Founder & Voice of Our Projects
-          </p>
-          <div class="space-y-4 text-gray-700 leading-relaxed">
-            <p>
-              While our chef expresses his passion through food, Gigi brings it
-              to life through words. As the co-founder, she's the heartbeat of
-              our endeavors. Known for her incredible multitasking skills and
-              problem-solving prowess, she manages both the back of house (BOH)
-              and front of house (FOH) operations.
-            </p>
-            <p>
-              You might even catch her strolling around with a glass of wine,
-              ensuring that the good vibes are flowing just right!
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
+    {% endfor %}
 
-    <!-- Jeanette aka JJ -->
-    <div
-      class="mb-20 md:mb-28"
-      data-aos="fade-up"
-      data-aos-offset="200"
-      data-aos-delay="200"
-    >
-      <div class="max-w-3xl mx-auto">
-        <div class="border-l-4 border-[#7A4634] pl-6 md:pl-8">
-          <h2
-            class="text-3xl md:text-4xl lg:text-5xl font-bold text-[#2c1810] mb-2"
-          >
-            Jeanette
-          </h2>
-          <p class="text-xl md:text-2xl text-[#7A4634] font-semibold mb-2">
-            aka JJ
-          </p>
-          <p class="text-sm text-[#7A4634] uppercase tracking-wider mb-6">
-            The Hospitality Queen
-          </p>
-          <div class="space-y-4 text-gray-700 leading-relaxed">
-            <p>
-              What JJ is most known for? Her unmatched hospitality! With her
-              biggest and warmest smile, she greets every guest like a friend,
-              genuinely caring about their dining experience with us. Her
-              superpower? A laughter that fills the room!
-            </p>
-            <p>
-              With nearly three years on the team, her vibrant personality is a
-              beacon of cheer that brightens our space.
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
+  </div>
+</section>
 
-    <!-- Mr. Gan -->
-    <div
-      class="mb-20 md:mb-28"
-      data-aos="fade-up"
-      data-aos-offset="200"
-      data-aos-delay="300"
-    >
-      <div class="max-w-3xl mx-auto">
-        <div class="border-r-4 border-[#7A4634] pr-6 md:pr-8 md:text-right">
-          <h2
-            class="text-3xl md:text-4xl lg:text-5xl font-bold text-[#2c1810] mb-2"
-          >
-            Mr. Gan
-          </h2>
-          <p class="text-sm text-[#7A4634] uppercase tracking-wider mb-6">
-            Operations Manager
-          </p>
-          <div class="space-y-4 text-gray-700 leading-relaxed">
-            <p>
-              The newest addition to our team, Mr. Gan brings decades of
-              experience in the food and beverage industry from Singapore and
-              Malaysia. As the operations manager, he coordinates all our
-              projects to ensure smooth operations and inspires the team to
-              consistently deliver exceptional results for our guests.
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Closing Statement -->
-    <div
-      class="text-center mt-12 pt-8 border-t border-gray-200"
-      data-aos="fade-up"
-      data-aos-offset="100"
-    >
-      <p class="text-xl md:text-2xl text-[#2c1810] font-medium italic">
-        Together, we create an atmosphere of creativity, joy, and culinary
-        excellence.<br />
-        Come and experience the magic we bring to your table!
-      </p>
-    </div>
+<!-- TEAM OUTRO -->
+<section class="pb-16 md:pb-20 bg-[#FBF9ED]">
+  <div class="mx-auto max-w-6xl px-6 lg:px-8 text-center">
+    <h2 class="text-xl md:text-3xl font-bold text-[#2c1810] mb-6">
+      Together, we create an atmosphere of creativity, joy, and culinary excellence. <br> Come and experience the magic we bring to your table!
+    </h2>
   </div>
 </section>
 
 {% include footer.html %}
-
-<style>
-  /* Additional responsive styles j*/
-  @media (max-width: 768px) {
-    .border-r-4 {
-      border-right: none;
-      border-left: 4px solid #7a4634;
-      padding-left: 1.5rem;
-      padding-right: 0;
-      text-align: left;
-    }
-  }
-</style>
