@@ -18,16 +18,24 @@
       >
         <div>
           <h4 class="mb-3 text-lg font-bold text-black">Stay Updated</h4>
+
           <p class="text-sm text-gray-800 leading-relaxed max-w-[220px]">
             Sign up for news, offers, and upcoming events from The Potato
             Heroes.
           </p>
         </div>
+
+        <!-- Hidden detection form for Netlify -->
+        <form name="newsletter" netlify hidden>
+          <input type="email" name="email" />
+        </form>
+
+        <!-- Live Newsletter Form -->
         <form
+          id="newsletterForm"
           name="newsletter"
           method="POST"
           data-netlify="true"
-          action="/subscribe/"
           class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 flex-1 pt-6 md:pt-8"
         >
           <input type="hidden" name="form-name" value="newsletter" />
@@ -56,13 +64,63 @@
           </div>
 
           <button
+            id="subscribe-btn"
             type="submit"
-            class="border-2 border-[#BA3914] bg-transparent px-8 py-3 text-sm font-bold text-black hover:bg-[#BA3914] hover:text-white whitespace-nowrap"
+            class="border-2 border-[#BA3914] bg-transparent px-8 py-3 text-sm font-bold text-black transition-colors hover:bg-[#BA3914] hover:text-white whitespace-nowrap"
             style="border-radius: 14px"
           >
             Subscribe Now
           </button>
         </form>
+      </div>
+
+      <!-- SUCCESS POPUP -->
+      <div
+        id="subscribe-modal"
+        class="fixed inset-0 hidden items-center justify-center z-50 p-4"
+      >
+        <!-- Overlay -->
+        <div
+          id="modal-overlay"
+          class="absolute inset-0 bg-black/40 backdrop-blur-sm"
+        ></div>
+
+        <!-- Modal -->
+        <div
+          class="relative w-[92vw] sm:w-full max-w-xl bg-[#FBF9ED] border-[3px] sm:border-4 border-[#92400e] shadow-2xl px-6 py-8 sm:px-10 sm:py-10 md:px-16 md:py-14"
+          style="border-radius: 28px"
+        >
+          <button
+            id="close-modal"
+            aria-label="Close popup"
+            class="absolute top-4 right-5 sm:top-6 sm:right-7 text-2xl sm:text-3xl leading-none hover:opacity-60"
+          >
+            ×
+          </button>
+
+          <h3
+            class="text-2xl sm:text-3xl md:text-4xl font-bold text-black mb-5 md:mb-6"
+          >
+            You’re In!
+          </h3>
+
+          <p
+            class="text-[15px] sm:text-lg leading-relaxed text-gray-800 mb-8 md:mb-10"
+          >
+            Thanks for subscribing. We’ll keep you updated with news, offers and
+            upcoming events from The Potato Heroes.
+          </p>
+
+          <div class="pt-1 sm:pt-2 flex justify-center sm:justify-end">
+            <button
+              id="modal-ok"
+              class="w-full sm:w-auto border-2 border-[#BA3914] px-8 sm:px-12 py-3 sm:py-4 font-bold text-black hover:bg-[#BA3914] hover:text-white transition"
+              style="border-radius: 16px"
+            >
+              Awesome
+            </button>
+          </div>
+        </div>
       </div>
 
       <!-- Quick Links -->
@@ -245,4 +303,64 @@
       </p>
     </div>
   </div>
+
+  <script>
+    /* Newsletter Netlify Submit + Popup */
+
+    const newsletterForm = document.getElementById("newsletterForm");
+    const subscribeBtn = document.getElementById("subscribe-btn");
+
+    const modal = document.getElementById("subscribe-modal");
+    const modalOverlay = document.getElementById("modal-overlay");
+    const closeModal = document.getElementById("close-modal");
+    const modalOk = document.getElementById("modal-ok");
+
+    function openModal() {
+      modal.classList.remove("hidden");
+      modal.classList.add("flex");
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeSubscribeModal() {
+      modal.classList.add("hidden");
+      modal.classList.remove("flex");
+      document.body.style.overflow = "";
+    }
+
+    closeModal.addEventListener("click", closeSubscribeModal);
+    modalOverlay.addEventListener("click", closeSubscribeModal);
+    modalOk.addEventListener("click", closeSubscribeModal);
+
+    newsletterForm.addEventListener("submit", async function (e) {
+      e.preventDefault();
+
+      const originalText = subscribeBtn.innerText;
+      subscribeBtn.disabled = true;
+      subscribeBtn.innerText = "Subscribing...";
+
+      const formData = new FormData(newsletterForm);
+
+      try {
+        await fetch("/", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded",
+          },
+          body: new URLSearchParams(formData).toString(),
+        });
+
+        newsletterForm.reset();
+
+        subscribeBtn.disabled = false;
+        subscribeBtn.innerText = originalText;
+
+        openModal();
+      } catch (error) {
+        subscribeBtn.disabled = false;
+        subscribeBtn.innerText = originalText;
+
+        alert("Something went wrong. Please try again.");
+      }
+    });
+  </script>
 </footer>
