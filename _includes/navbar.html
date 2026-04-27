@@ -41,7 +41,7 @@
     <div
       class="absolute top-0 right-0 h-full w-80 transform translate-x-full transition-transform duration-300 overflow-y-auto"
       style="
-        background-image: url(&quot;assets/images/background.png&quot;);
+        background-image: url('{{ '/assets/images/background.png' | relative_url }}');
         background-size: cover;
         background-position: center;
       "
@@ -67,17 +67,15 @@
 
         <div class="space-y-4 mb-12 mt-16">
           <!-- Alani -->
-          <!-- Wrapper utama diubah jadi DIV -->
           <div
             class="w-full flex items-center justify-between text-gray-800 text-xl font-bold"
           >
-            <!-- Teks sekarang menjadi Link -->
-            <a href="/alani.html" class="hover:text-[#b9846a] flex-grow"
+            <a
+              href="/alani.html"
+              class="hover:text-[#b9846a] flex-grow menu-link"
               >Alani</a
             >
 
-            <!-- Tombol Toggle hanya membungkus SVG -->
-            <!-- ID 'alani-toggle' dipindahkan ke sini agar JS tetap jalan -->
             <button id="alani-toggle" class="p-2 hover:text-[#b9846a]">
               <svg
                 class="w-6 h-6 transform transition-transform"
@@ -99,39 +97,44 @@
           <div id="alani-dropdown" class="hidden pl-4 space-y-3">
             <a
               href="/alani.html#about"
-              class="block text-base text-gray-800 hover:text-[#b9846a]"
+              class="block text-base text-gray-800 hover:text-[#b9846a] menu-link"
               >About</a
             >
             <a
-              href="/alani.html#faqs"
-              class="block text-base text-gray-800 hover:text-[#b9846a]"
-              >FAQs</a
-            >
-            <a
               href="/alani.html#gallery"
-              class="block text-base text-gray-800 hover:text-[#b9846a]"
+              class="block text-base text-gray-800 hover:text-[#b9846a] menu-link"
               >Gallery</a
             >
             <a
               href="/alani.html#menu"
-              class="block text-base text-gray-800 hover:text-[#b9846a]"
+              class="block text-base text-gray-800 hover:text-[#b9846a] menu-link"
               >Menu</a
             >
             <a
               href="/alani.html#reviews"
-              class="block text-base text-gray-800 hover:text-[#b9846a]"
+              class="block text-base text-gray-800 hover:text-[#b9846a] menu-link"
               >Reviews</a
             >
             <a
+              href="/alani.html#faqs"
+              class="block text-base text-gray-800 hover:text-[#b9846a] menu-link"
+              >FAQs</a
+            >
+            <a
               href="/alani.html#findus"
-              class="block text-base text-gray-800 hover:text-[#b9846a]"
+              class="block text-base text-gray-800 hover:text-[#b9846a] menu-link"
               >Find Us</a
             >
             <div class="space-y-2 pt-2">
-              <!-- <button class="w-full border-2 border-[#BA3914] bg-transparent text-gray-800 py-2 px-4 text-sm font-semibold hover:bg-[#BA3914] hover:text-white transition-all" style="border-radius: 16px;">Order Online</button> -->
               <button
-                class="w-full border-2 border-[#496BBB] bg-transparent text-gray-800 py-2 px-4 text-sm font-semibold hover:bg-[#496BBB] hover:text-white transition-all"
+                class="w-full border-2 border-[#496BBB] bg-transparent text-gray-800 py-2 px-4 text-sm font-semibold hover:bg-[#496BBB] hover:text-white transition-all reservation-btn"
                 style="border-radius: 16px"
+                onclick="
+                  window.open(
+                    'https://www.sevenrooms.com/explore/proudpotatopeeler/reservations/create/search/',
+                    '_blank',
+                  )
+                "
               >
                 Make Reservation
               </button>
@@ -144,7 +147,7 @@
           >
             <a
               href="/proud-potato-peeler.html"
-              class="hover:text-[#b9846a] flex-grow"
+              class="hover:text-[#b9846a] flex-grow menu-link"
               >Proud Potato Peeler</a
             >
 
@@ -169,43 +172,43 @@
           <div id="potato-dropdown" class="hidden pl-4 space-y-3">
             <a
               href="/proud-potato-peeler.html#about"
-              class="block text-base text-gray-800 hover:text-[#b9846a]"
+              class="block text-base text-gray-800 hover:text-[#b9846a] menu-link"
               >About</a
             >
             <a
-              href="/proud-potato-peeler.html#faqs"
-              class="block text-base text-gray-800 hover:text-[#b9846a]"
-              >FAQs</a
-            >
-            <a
               href="/proud-potato-peeler.html#gallery"
-              class="block text-base text-gray-800 hover:text-[#b9846a]"
+              class="block text-base text-gray-800 hover:text-[#b9846a] menu-link"
               >Gallery</a
             >
             <a
               href="/proud-potato-peeler.html#menu"
-              class="block text-base text-gray-800 hover:text-[#b9846a]"
+              class="block text-base text-gray-800 hover:text-[#b9846a] menu-link"
               >Menu</a
             >
             <a
               href="/proud-potato-peeler.html#reviews"
-              class="block text-base text-gray-800 hover:text-[#b9846a]"
+              class="block text-base text-gray-800 hover:text-[#b9846a] menu-link"
               >Reviews</a
             >
             <a
+              href="/proud-potato-peeler.html#faqs"
+              class="block text-base text-gray-800 hover:text-[#b9846a] menu-link"
+              >FAQs</a
+            >
+            <a
               href="/proud-potato-peeler.html#findus"
-              class="block text-base text-gray-800 hover:text-[#b9846a]"
+              class="block text-base text-gray-800 hover:text-[#b9846a] menu-link"
               >Find Us</a
             >
             <div class="space-y-2 pt-2">
               <button
-                class="w-full border-2 border-[#BA3914] bg-transparent text-gray-800 py-2 px-4 text-sm font-semibold hover:bg-[#BA3914] hover:text-white transition-all"
+                class="w-full border-2 border-[#BA3914] bg-transparent text-gray-800 py-2 px-4 text-sm font-semibold hover:bg-[#BA3914] hover:text-white transition-all order-btn"
                 style="border-radius: 16px"
               >
                 Order Online
               </button>
               <button
-                class="w-full border-2 border-[#496BBB] bg-transparent text-gray-800 py-2 px-4 text-sm font-semibold hover:bg-[#496BBB] hover:text-white transition-all"
+                class="w-full border-2 border-[#496BBB] bg-transparent text-gray-800 py-2 px-4 text-sm font-semibold hover:bg-[#496BBB] hover:text-white transition-all reservation-btn"
                 style="border-radius: 16px"
               >
                 Make Reservation
@@ -219,7 +222,7 @@
           >
             <a
               href="/proud-perfect-potions.html"
-              class="hover:text-[#b9846a] flex-grow"
+              class="hover:text-[#b9846a] flex-grow menu-link"
               >Proud Perfect Potions</a
             >
 
@@ -244,7 +247,7 @@
           <div id="potions-dropdown" class="hidden pl-4 space-y-3">
             <a
               href="/proud-perfect-potions.html"
-              class="block text-base text-gray-800 hover:text-[#b9846a]"
+              class="block text-base text-gray-800 hover:text-[#b9846a] menu-link"
               >Coming Soon</a
             >
           </div>
@@ -253,17 +256,17 @@
         <div class="flex flex-col gap-4 mt-8">
           <a
             href="/daily-heroes.html"
-            class="text-gray-800 text-xl font-bold hover:text-[#b9846a]"
+            class="text-gray-800 text-xl font-bold hover:text-[#b9846a] menu-link"
             >The Daily Heroes</a
           >
           <a
             href="/career.html"
-            class="text-gray-800 text-xl font-bold hover:text-[#b9846a]"
+            class="text-gray-800 text-xl font-bold hover:text-[#b9846a] menu-link"
             >Career</a
           >
           <a
             href="/contact.html"
-            class="text-gray-800 text-xl font-bold hover:text-[#b9846a]"
+            class="text-gray-800 text-xl font-bold hover:text-[#b9846a] menu-link"
             >Contact</a
           >
         </div>
@@ -273,43 +276,105 @@
 </header>
 
 <script>
-  // Smooth scroll
-  document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-    anchor.addEventListener("click", function (e) {
-      const href = this.getAttribute("href");
-      if (href.includes("#")) {
-        const targetId = href.split("#")[1];
-        const targetElement = document.getElementById(targetId);
-        if (targetElement) {
-          e.preventDefault();
-          targetElement.scrollIntoView({ behavior: "smooth" });
-          closeMenu();
-        }
-      }
-    });
-  });
-
+  // Menu elements
   const menuToggle = document.getElementById("menu-toggle");
   const menuClose = document.getElementById("menu-close");
   const menu = document.getElementById("mobile-menu");
   const menuOverlay = document.getElementById("menu-overlay");
-  const drawer = menu.querySelector(".transform");
+  const drawer = menu ? menu.querySelector(".transform") : null;
+
+  let isMenuOpen = false;
 
   function openMenu() {
+    if (!menu || !drawer) return;
     menu.classList.remove("hidden");
     document.body.style.overflow = "hidden";
-    setTimeout(() => drawer.classList.remove("translate-x-full"), 10);
+    isMenuOpen = true;
+    // Force reflow
+    void drawer.offsetWidth;
+    drawer.classList.remove("translate-x-full");
   }
 
   function closeMenu() {
+    if (!menu || !drawer) return;
     drawer.classList.add("translate-x-full");
     document.body.style.overflow = "";
-    setTimeout(() => menu.classList.add("hidden"), 300);
+    isMenuOpen = false;
+    // Wait for transition to complete before hiding
+    setTimeout(() => {
+      if (menu && !isMenuOpen) {
+        menu.classList.add("hidden");
+      }
+    }, 300);
   }
 
-  menuToggle.addEventListener("click", openMenu);
-  menuClose.addEventListener("click", closeMenu);
-  menuOverlay.addEventListener("click", closeMenu);
+  if (menuToggle) menuToggle.addEventListener("click", openMenu);
+  if (menuClose) menuClose.addEventListener("click", closeMenu);
+  if (menuOverlay) menuOverlay.addEventListener("click", closeMenu);
+
+  // Close menu when clicking on any menu link
+  const menuLinks = document.querySelectorAll(".menu-link");
+  menuLinks.forEach((link) => {
+    link.addEventListener("click", (e) => {
+      // For hash links, prevent default to handle smooth scroll
+      const href = link.getAttribute("href");
+      if (href && href.includes("#")) {
+        e.preventDefault();
+        const [pagePath, hash] = href.split("#");
+        const currentPath = window.location.pathname;
+
+        // If on same page, just scroll to element
+        if (
+          currentPath === pagePath ||
+          pagePath === "" ||
+          pagePath === currentPath
+        ) {
+          const targetElement = document.getElementById(hash);
+          if (targetElement) {
+            closeMenu();
+            setTimeout(() => {
+              targetElement.scrollIntoView({ behavior: "smooth" });
+            }, 350);
+          }
+        } else {
+          // Navigate to different page with hash
+          closeMenu();
+          setTimeout(() => {
+            window.location.href = href;
+          }, 350);
+        }
+      } else {
+        // Regular link - close menu and navigate
+        e.preventDefault();
+        closeMenu();
+        setTimeout(() => {
+          window.location.href = href;
+        }, 350);
+      }
+    });
+  });
+
+  // Handle Order Online buttons
+  const orderBtns = document.querySelectorAll(".order-btn");
+  orderBtns.forEach((btn) => {
+    btn.addEventListener("click", (e) => {
+      e.preventDefault();
+      closeMenu();
+      // Add your order online logic here
+      console.log("Order Online clicked");
+    });
+  });
+
+  // Handle Make Reservation buttons
+  const reservationBtns = document.querySelectorAll(".reservation-btn");
+  reservationBtns.forEach((btn) => {
+    btn.addEventListener("click", (e) => {
+      e.preventDefault();
+      closeMenu();
+      // Add your reservation logic here
+      console.log("Make Reservation clicked");
+    });
+  });
 
   // Dropdown toggles
   const alaniToggle = document.getElementById("alani-toggle");
@@ -322,52 +387,61 @@
   const potionsDropdown = document.getElementById("potions-dropdown");
   const potionsArrow = document.getElementById("potions-arrow");
 
-  alaniToggle.addEventListener("click", function () {
-    alaniDropdown.classList.toggle("hidden");
-    alaniArrow.classList.toggle("rotate-180");
-    if (!alaniDropdown.classList.contains("hidden")) {
-      potatoDropdown.classList.add("hidden");
-      potatoArrow.classList.remove("rotate-180");
-      potionsDropdown.classList.add("hidden");
-      potionsArrow.classList.remove("rotate-180");
-    }
-  });
+  if (alaniToggle) {
+    alaniToggle.addEventListener("click", function (e) {
+      e.stopPropagation();
+      alaniDropdown.classList.toggle("hidden");
+      if (alaniArrow) alaniArrow.classList.toggle("rotate-180");
+      if (!alaniDropdown.classList.contains("hidden")) {
+        if (potatoDropdown) potatoDropdown.classList.add("hidden");
+        if (potatoArrow) potatoArrow.classList.remove("rotate-180");
+        if (potionsDropdown) potionsDropdown.classList.add("hidden");
+        if (potionsArrow) potionsArrow.classList.remove("rotate-180");
+      }
+    });
+  }
 
-  potatoToggle.addEventListener("click", function () {
-    potatoDropdown.classList.toggle("hidden");
-    potatoArrow.classList.toggle("rotate-180");
-    if (!potatoDropdown.classList.contains("hidden")) {
-      alaniDropdown.classList.add("hidden");
-      alaniArrow.classList.remove("rotate-180");
-      potionsDropdown.classList.add("hidden");
-      potionsArrow.classList.remove("rotate-180");
-    }
-  });
+  if (potatoToggle) {
+    potatoToggle.addEventListener("click", function (e) {
+      e.stopPropagation();
+      potatoDropdown.classList.toggle("hidden");
+      if (potatoArrow) potatoArrow.classList.toggle("rotate-180");
+      if (!potatoDropdown.classList.contains("hidden")) {
+        if (alaniDropdown) alaniDropdown.classList.add("hidden");
+        if (alaniArrow) alaniArrow.classList.remove("rotate-180");
+        if (potionsDropdown) potionsDropdown.classList.add("hidden");
+        if (potionsArrow) potionsArrow.classList.remove("rotate-180");
+      }
+    });
+  }
 
-  potionsToggle.addEventListener("click", function () {
-    potionsDropdown.classList.toggle("hidden");
-    potionsArrow.classList.toggle("rotate-180");
-    if (!potionsDropdown.classList.contains("hidden")) {
-      alaniDropdown.classList.add("hidden");
-      alaniArrow.classList.remove("rotate-180");
-      potatoDropdown.classList.add("hidden");
-      potatoArrow.classList.remove("rotate-180");
-    }
-  });
+  if (potionsToggle) {
+    potionsToggle.addEventListener("click", function (e) {
+      e.stopPropagation();
+      potionsDropdown.classList.toggle("hidden");
+      if (potionsArrow) potionsArrow.classList.toggle("rotate-180");
+      if (!potionsDropdown.classList.contains("hidden")) {
+        if (alaniDropdown) alaniDropdown.classList.add("hidden");
+        if (alaniArrow) alaniArrow.classList.remove("rotate-180");
+        if (potatoDropdown) potatoDropdown.classList.add("hidden");
+        if (potatoArrow) potatoArrow.classList.remove("rotate-180");
+      }
+    });
+  }
 
-  // === AUTO OPEN SESUAI URL (DEFAULT STATE) ===
+  // Auto open according to current URL
   (function () {
-    const currentUrl = "{{ page.url | downcase }}";
+    const currentUrl = window.location.pathname.toLowerCase();
 
     if (currentUrl.includes("alani")) {
-      alaniDropdown.classList.remove("hidden");
-      alaniArrow.classList.add("rotate-180");
+      if (alaniDropdown) alaniDropdown.classList.remove("hidden");
+      if (alaniArrow) alaniArrow.classList.add("rotate-180");
     } else if (currentUrl.includes("proud-potato-peeler")) {
-      potatoDropdown.classList.remove("hidden");
-      potatoArrow.classList.add("rotate-180");
+      if (potatoDropdown) potatoDropdown.classList.remove("hidden");
+      if (potatoArrow) potatoArrow.classList.add("rotate-180");
     } else if (currentUrl.includes("proud-perfect-potions")) {
-      potionsDropdown.classList.remove("hidden");
-      potionsArrow.classList.add("rotate-180");
+      if (potionsDropdown) potionsDropdown.classList.remove("hidden");
+      if (potionsArrow) potionsArrow.classList.add("rotate-180");
     }
   })();
 </script>
