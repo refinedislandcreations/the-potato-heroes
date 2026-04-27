@@ -23,9 +23,15 @@
             Heroes.
           </p>
         </div>
-        <div
+        <form
+          name="newsletter"
+          method="POST"
+          data-netlify="true"
+          action="/thank-you/"
           class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 flex-1 pt-6 md:pt-8"
         >
+          <input type="hidden" name="form-name" value="newsletter" />
+
           <div class="relative flex-1 max-w-md">
             <svg
               class="absolute left-0 top-1/2 -translate-y-1/2 w-4 h-4"
@@ -39,19 +45,24 @@
                 d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"
               />
             </svg>
+
             <input
               type="email"
+              name="email"
+              required
               placeholder="Enter your email"
               class="w-full border-b-2 border-gray-400 bg-transparent py-2 pl-6 pr-4 text-sm text-black placeholder:text-gray-600 focus:border-[#b9846a] focus:outline-none"
             />
           </div>
+
           <button
-            class="border-2 border-[#BA3914] bg-transparent px-8 py-3 text-sm font-bold text-black transition-colors hover:bg-[#BA3914] hover:text-white whitespace-nowrap"
+            type="submit"
+            class="border-2 border-[#BA3914] bg-transparent px-8 py-3 text-sm font-bold text-black hover:bg-[#BA3914] hover:text-white whitespace-nowrap"
             style="border-radius: 14px"
           >
             Subscribe Now
           </button>
-        </div>
+        </form>
       </div>
 
       <!-- Quick Links -->
