@@ -1,67 +1,196 @@
 <section class="py-20 px-6 md:px-12 lg:px-20 overflow-hidden">
-  <div class="border-amber-800 p-6 md:p-12" style="border-radius: 16px; border: 8px solid #92400e;" data-aos="fade-up" data-aos-offset="200">
-    
-    <form id="contactForm" class="grid md:grid-cols-[1fr_1.5fr] gap-12" style="font-family: 'Montserrat', sans-serif;">
-      
-      <!-- Left Column -->
+  <div
+    class="border-amber-800 p-6 md:p-12"
+    style="border-radius: 16px; border: 8px solid #92400e"
+    data-aos="fade-up"
+    data-aos-offset="200"
+  >
+    <!-- Hidden Netlify detection form -->
+    <form name="contact" netlify hidden>
+      <input type="text" name="name" />
+      <input type="email" name="email" />
+      <input type="tel" name="phone" />
+      <input type="text" name="reason" />
+      <textarea name="message"></textarea>
+    </form>
+
+    <!-- Live Contact Form -->
+    <form
+      id="contactForm"
+      name="contact"
+      method="POST"
+      action="/thank-you/"
+      data-netlify="true"
+      netlify-honeypot="bot-field"
+      class="grid md:grid-cols-[1fr_1.5fr] gap-12"
+      style="font-family: &quot;Montserrat&quot;, sans-serif"
+      onsubmit="return validateReason();"
+    >
+      <!-- Required for Netlify -->
+      <input type="hidden" name="form-name" value="contact" />
+
+      <!-- Honeypot Spam Protection -->
+      <p hidden>
+        <label>
+          Don’t fill this out:
+          <input name="bot-field" />
+        </label>
+      </p>
+
+      <!-- LEFT COLUMN -->
       <div class="space-y-6">
-        <!-- Name Field -->
+        <!-- Name -->
         <div class="flex flex-col md:flex-row md:items-center gap-1 md:gap-4">
-          <label class="text-amber-800 font-medium whitespace-nowrap" style="font-family: 'Montserrat', sans-serif;">Name</label>
-          <input type="text" name="name" required class="w-full flex-1 min-w-0 border-b-2 border-amber-800 bg-transparent pb-2 focus:outline-none focus:border-amber-600" style="font-family: 'Montserrat', sans-serif;">
+          <label class="text-amber-800 font-medium whitespace-nowrap">
+            Name
+          </label>
+
+          <input
+            type="text"
+            name="name"
+            required
+            class="w-full flex-1 min-w-0 border-b-2 border-amber-800 bg-transparent pb-2 focus:outline-none focus:border-amber-600"
+          />
         </div>
-        
-        <!-- Email Field -->
+
+        <!-- Email -->
         <div class="flex flex-col md:flex-row md:items-center gap-1 md:gap-4">
-          <label class="text-amber-800 font-medium whitespace-nowrap" style="font-family: 'Montserrat', sans-serif;">E-Mail</label>
-          <input type="email" name="email" required class="w-full flex-1 min-w-0 border-b-2 border-amber-800 bg-transparent pb-2 focus:outline-none focus:border-amber-600" style="font-family: 'Montserrat', sans-serif;">
+          <label class="text-amber-800 font-medium whitespace-nowrap">
+            E-Mail
+          </label>
+
+          <input
+            type="email"
+            name="email"
+            required
+            class="w-full flex-1 min-w-0 border-b-2 border-amber-800 bg-transparent pb-2 focus:outline-none focus:border-amber-600"
+          />
         </div>
-        
-        <!-- Phone Field -->
+
+        <!-- Phone -->
         <div class="flex flex-col md:flex-row md:items-center gap-1 md:gap-4">
-          <label class="text-amber-800 font-medium whitespace-nowrap" style="font-family: 'Montserrat', sans-serif;">Phone</label>
-          <input type="tel" name="phone" required class="w-full flex-1 min-w-0 border-b-2 border-amber-800 bg-transparent pb-2 focus:outline-none focus:border-amber-600" style="font-family: 'Montserrat', sans-serif;">
+          <label class="text-amber-800 font-medium whitespace-nowrap">
+            Phone
+          </label>
+
+          <input
+            type="tel"
+            name="phone"
+            required
+            class="w-full flex-1 min-w-0 border-b-2 border-amber-800 bg-transparent pb-2 focus:outline-none focus:border-amber-600"
+          />
         </div>
-        
-        <!-- Dropdown Field -->
+
+        <!-- Reason Dropdown -->
         <div class="relative">
-          <label class="block text-amber-800 font-medium mb-2" style="font-family: 'Montserrat', sans-serif;">Reason for Contact</label>
-          
-          <input type="hidden" name="reason" id="reason-input" value="">
+          <label class="block text-amber-800 font-medium mb-2">
+            Reason for Contact
+          </label>
+
+          <input type="hidden" name="reason" id="reason-input" value="" />
 
           <div class="relative">
-            <button type="button" id="dropdown-btn" class="w-full border-2 border-amber-800 bg-transparent p-2 text-left focus:outline-none focus:border-amber-600 flex justify-between items-center" style="border-radius: 8px; font-family: 'Montserrat', sans-serif;">
-              <span id="selected-option">Select an option</span>
-              <svg class="w-4 h-4 transition-transform duration-200" id="dropdown-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+            <button
+              type="button"
+              id="dropdown-btn"
+              class="w-full border-2 border-amber-800 bg-transparent p-2 text-left focus:outline-none focus:border-amber-600 flex justify-between items-center"
+              style="border-radius: 8px"
+            >
+              <span id="selected-option"> Select an option </span>
+
+              <svg
+                class="w-4 h-4 transition-transform duration-200"
+                id="dropdown-arrow"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M19 9l-7 7-7-7"
+                ></path>
               </svg>
             </button>
-            
-            <div id="dropdown-menu" class="bg-[#FBF9ED] absolute top-full left-0 w-full border-2 border-amber-800 mt-2 shadow-lg z-10 hidden" style="border-radius: 8px; font-family: 'Montserrat', sans-serif;">
+
+            <div
+              id="dropdown-menu"
+              class="bg-[#FBF9ED] absolute top-full left-0 w-full border-2 border-amber-800 mt-2 shadow-lg z-10 hidden"
+              style="border-radius: 8px"
+            >
               <div class="py-2">
-                <div class="dropdown-option px-4 py-2 hover:bg-amber-800 hover:text-white cursor-pointer" data-value="General Inquiry">General Inquiry</div>
-                <div class="dropdown-option px-4 py-2 hover:bg-amber-800 hover:text-white cursor-pointer" data-value="Alani">Alani</div>
-                <div class="dropdown-option px-4 py-2 hover:bg-amber-800 hover:text-white cursor-pointer" data-value="Proud Potato Peeler">Proud Potato Peeler</div>
-                <div class="dropdown-option px-4 py-2 hover:bg-amber-800 hover:text-white cursor-pointer" data-value="Proud Perfect Potions">Proud Perfect Potions</div>
-                <div class="dropdown-option px-4 py-2 hover:bg-amber-800 hover:text-white cursor-pointer" data-value="Careers">Careers / Job Applications</div>
-                <div class="dropdown-option px-4 py-2 hover:bg-amber-800 hover:text-white cursor-pointer" data-value="Press">Press / Collaboration</div>
+                <div
+                  class="dropdown-option px-4 py-2 hover:bg-amber-800 hover:text-white cursor-pointer"
+                  data-value="General Inquiry"
+                >
+                  General Inquiry
+                </div>
+
+                <div
+                  class="dropdown-option px-4 py-2 hover:bg-amber-800 hover:text-white cursor-pointer"
+                  data-value="Alani"
+                >
+                  Alani
+                </div>
+
+                <div
+                  class="dropdown-option px-4 py-2 hover:bg-amber-800 hover:text-white cursor-pointer"
+                  data-value="Proud Potato Peeler"
+                >
+                  Proud Potato Peeler
+                </div>
+
+                <div
+                  class="dropdown-option px-4 py-2 hover:bg-amber-800 hover:text-white cursor-pointer"
+                  data-value="Proud Perfect Potions"
+                >
+                  Proud Perfect Potions
+                </div>
+
+                <div
+                  class="dropdown-option px-4 py-2 hover:bg-amber-800 hover:text-white cursor-pointer"
+                  data-value="Careers"
+                >
+                  Careers / Job Applications
+                </div>
+
+                <div
+                  class="dropdown-option px-4 py-2 hover:bg-amber-800 hover:text-white cursor-pointer"
+                  data-value="Press"
+                >
+                  Press / Collaboration
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-      
-      <!-- Right Column -->
+
+      <!-- RIGHT COLUMN -->
       <div class="space-y-6">
-        <!-- Message Field -->
+        <!-- Message -->
         <div>
-          <label class="block text-amber-800 font-medium mb-2" style="font-family: 'Montserrat', sans-serif;">Message</label>
-          <textarea name="message" required rows="8" class="bg-[#FBF9ED] w-full p-4 resize-none focus:outline-none" placeholder="Your message here..." style="border-radius: 8px; border: 2px solid #7A4634; font-family: 'Montserrat', sans-serif;"></textarea>
+          <label class="block text-amber-800 font-medium mb-2"> Message </label>
+
+          <textarea
+            name="message"
+            required
+            rows="8"
+            class="bg-[#FBF9ED] w-full p-4 resize-none focus:outline-none"
+            placeholder="Your message here..."
+            style="border-radius: 8px; border: 2px solid #7a4634"
+          >
+          </textarea>
         </div>
-        
-        <!-- Submit Button -->
+
+        <!-- Submit -->
         <div class="flex justify-end">
-          <button type="submit" id="submit-btn" class="border-2 border-amber-800 text-amber-800 px-12 py-3 font-medium hover:bg-amber-800 hover:text-white transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed" style="border-radius: 16px; font-family: 'Montserrat', sans-serif;">
+          <button
+            type="submit"
+            class="border-2 border-amber-800 text-amber-800 px-12 py-3 font-medium hover:bg-amber-800 hover:text-white transition-colors duration-200"
+            style="border-radius: 16px"
+          >
             Submit
           </button>
         </div>
@@ -69,79 +198,44 @@
     </form>
   </div>
 
-<script>
-  // Script Dropdown
-  const dropdownBtn = document.getElementById('dropdown-btn');
-  const dropdownMenu = document.getElementById('dropdown-menu');
-  const dropdownArrow = document.getElementById('dropdown-arrow');
-  const selectedOption = document.getElementById('selected-option');
-  const dropdownOptions = document.querySelectorAll('.dropdown-option');
-  const reasonInput = document.getElementById('reason-input');
+  <script>
+    /* Dropdown */
+    const dropdownBtn = document.getElementById("dropdown-btn");
+    const dropdownMenu = document.getElementById("dropdown-menu");
+    const dropdownArrow = document.getElementById("dropdown-arrow");
+    const selectedOption = document.getElementById("selected-option");
+    const dropdownOptions = document.querySelectorAll(".dropdown-option");
+    const reasonInput = document.getElementById("reason-input");
 
-  dropdownBtn.addEventListener('click', function() {
-    dropdownMenu.classList.toggle('hidden');
-    dropdownArrow.classList.toggle('rotate-180');
-  });
-
-  dropdownOptions.forEach(option => {
-    option.addEventListener('click', function() {
-      const text = this.textContent;
-      const value = this.getAttribute('data-value');
-      
-      selectedOption.textContent = text;
-      reasonInput.value = value;
-      
-      dropdownMenu.classList.add('hidden');
-      dropdownArrow.classList.remove('rotate-180');
+    dropdownBtn.addEventListener("click", function () {
+      dropdownMenu.classList.toggle("hidden");
+      dropdownArrow.classList.toggle("rotate-180");
     });
-  });
 
-  document.addEventListener('click', function(event) {
-    if (!dropdownBtn.contains(event.target) && !dropdownMenu.contains(event.target)) {
-      dropdownMenu.classList.add('hidden');
-      dropdownArrow.classList.remove('rotate-180');
-    }
-  });
+    dropdownOptions.forEach((option) => {
+      option.addEventListener("click", function () {
+        selectedOption.textContent = this.textContent;
+        reasonInput.value = this.dataset.value;
 
-  // Script Google Sheet (Sudah termasuk link Anda)
-  const form = document.getElementById('contactForm');
-  const submitBtn = document.getElementById('submit-btn');
-
-  // URL yang Anda berikan:
-  const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwDgODkNRz9DEEh0IEw09wuG15m1Ue5Hm_35uZL_MQuJ2hcsWb1W0Nsq0KJXbrKPl65Zw/exec'; 
-
-  form.addEventListener('submit', e => {
-    e.preventDefault();
-    
-    if(!reasonInput.value) {
-      alert('Please select a reason for contact.');
-      return;
-    }
-
-    const originalText = submitBtn.innerText;
-    submitBtn.innerText = 'Sending...';
-    submitBtn.disabled = true;
-
-    const data = new FormData(form);
-
-    fetch(SCRIPT_URL, {
-        method: 'POST',
-        body: data
-    })
-    .then(response => {
-        alert("Thank you! Your message has been sent.");
-        form.reset();
-        selectedOption.textContent = "Select an option";
-        reasonInput.value = "";
-        submitBtn.innerText = originalText;
-        submitBtn.disabled = false;
-    })
-    .catch(error => {
-        console.error('Error!', error.message);
-        alert("Oops! Something went wrong. Please try again.");
-        submitBtn.innerText = originalText;
-        submitBtn.disabled = false;
+        dropdownMenu.classList.add("hidden");
+        dropdownArrow.classList.remove("rotate-180");
+      });
     });
-  });
-</script>
+
+    document.addEventListener("click", function (e) {
+      if (!dropdownBtn.contains(e.target) && !dropdownMenu.contains(e.target)) {
+        dropdownMenu.classList.add("hidden");
+        dropdownArrow.classList.remove("rotate-180");
+      }
+    });
+
+    /* Require dropdown selection */
+    function validateReason() {
+      if (!reasonInput.value) {
+        alert("Please select a reason for contact.");
+        return false;
+      }
+      return true;
+    }
+  </script>
 </section>
