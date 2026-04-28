@@ -1,55 +1,114 @@
-<!------------ Technical Metadata  --------------------------------->
-<meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<!------------ Technical Metadata ------------>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 
-<!------------ SEO Metadata  --------------------------------->
-<title> {{page.seo.title }} </title> 
-<meta name="description" content="{{page.seo.description }}">
-<meta name="keywords" content="{{page.seo.keywords }}">
+<!------------ SEO ------------>
+<title>{{ page.seo.title | default: page.title | default: site.title }}</title>
+
+<meta
+  name="description"
+  content="{{ page.seo.description | default: site.description | strip_html | strip_newlines | truncate: 160 }}"
+/>
+<meta
+  name="keywords"
+  content="{{ page.seo.keywords | default: site.keywords }}"
+/>
+
+<link rel="canonical" href="{{ page.url | absolute_url }}" />
 
 {% if page.seo.hide-from-google == true %}
-    <meta name="robots" content="nofollow">
-    <meta name="googlebot" content="noindex">
+<meta name="robots" content="noindex, nofollow" />
 {% else %}
-     <meta name="robots" content="follow">
-     <meta name="googlebot" content="index">
+<meta name="robots" content="index, follow" />
 {% endif %}
 
-<!------------  Social media sharing META Tags ------------>
-<meta property="og:title" content="{{ page.title | default: site.data.site-settings.seo.title }}">
-<meta property="og:description" content="{{ page.seo.description | default: site.data.site-settings.seo.description }}"> 
-<meta property="og:image" content="{{ page.seo.social_image | default: site.data.site-settings.seo.social_image }}">
-<meta property="og:url" content="{{ site.url }}{{ page.url }}">
-<meta property="og:type" content="website">
-<meta name="twitter:card" content="{{ page.seo.twitter_card | default: site.data.site-settings.seo.twitter_card }}">
-<meta name="og:site_name" content="{{ site.data.site-settings.seo.site_name }}">
-<link rel="icon" type="image/png" href="{{ site.data.site-settings.seo.favicon_image }}">
+<!------------ Open Graph ------------>
+<meta
+  property="og:title"
+  content="{{ page.seo.title | default: page.title | default: site.title }}"
+/>
+<meta
+  property="og:description"
+  content="{{ page.seo.description | default: site.description }}"
+/>
+<meta
+  property="og:image"
+  content="{{ page.seo.social_image | default: site.data.site-settings.seo.social_image | absolute_url }}"
+/>
+<meta property="og:url" content="{{ page.url | absolute_url }}" />
+<meta property="og:type" content="website" />
+<meta
+  property="og:site_name"
+  content="{{ site.data.site-settings.seo.site_name }}"
+/>
 
-<!----------Favicon------->
+<!------------ Twitter ------------>
+<meta
+  name="twitter:card"
+  content="{{ page.seo.twitter_card | default: 'summary_large_image' }}"
+/>
+<meta
+  name="twitter:title"
+  content="{{ page.seo.title | default: page.title | default: site.title }}"
+/>
+<meta
+  name="twitter:description"
+  content="{{ page.seo.description | default: site.description }}"
+/>
+<meta
+  name="twitter:image"
+  content="{{ page.seo.social_image | default: site.data.site-settings.seo.social_image | absolute_url }}"
+/>
 
-<!-- Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Bebas+Neue&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet"/>
-<!-- Fontawesome -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<!------------ Favicon ------------>
+<link rel="icon" href="{{ '/assets/images/favico.png' | relative_url }}" />
 
-<!-- Tailwind output -->
-<link rel="stylesheet" href="{{ '/assets/css/output.css' | relative_url }}">
+<!------------ Fonts (optimized) ------------>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
-<!------------ CloudCannon Editor Stylesheet   ------------>
-<link rel="stylesheet" type="text/css" href="/editor.css" />
+<link
+  href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap"
+  rel="stylesheet"
+/>
+<link
+  href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap"
+  rel="stylesheet"
+/>
+<link
+  href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap"
+  rel="stylesheet"
+/>
 
-<!------------ Custom Stylesheet   ------------>
-<link rel="stylesheet" type="text/css" href="{{ '/assets/css/style.css' | relative_url }}" />
+<!------------ Font Awesome ------------>
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+  crossorigin="anonymous"
+  referrerpolicy="no-referrer"
+/>
 
+<!------------ Styles ------------>
+<link rel="stylesheet" href="{{ '/assets/css/output.css' | relative_url }}" />
+<link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}" />
+
+<!------------ AOS (non-blocking CSS) ------------>
+<link
+  rel="preload"
+  href="https://unpkg.com/aos@2.3.4/dist/aos.css"
+  as="style"
+/>
 <link
   rel="stylesheet"
   href="https://unpkg.com/aos@2.3.4/dist/aos.css"
+  media="print"
+  onload="this.media = 'all'"
 />
 
-<link rel="icon" href="{{ '/assets/images/favico.png' | relative_url }}">
+<noscript>
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
+</noscript>
 
+<!------------ CloudCannon ------------>
+<link rel="stylesheet" href="/editor.css" />
