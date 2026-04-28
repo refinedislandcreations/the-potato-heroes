@@ -2,6 +2,7 @@
 <meta charset="utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="theme-color" content="#ffffff" />
 
 <!------------ SEO ------------>
 <title>{{ page.seo.title | default: page.title | default: site.title }}</title>
@@ -9,10 +10,6 @@
 <meta
   name="description"
   content="{{ page.seo.description | default: site.description | strip_html | strip_newlines | truncate: 160 }}"
-/>
-<meta
-  name="keywords"
-  content="{{ page.seo.keywords | default: site.keywords }}"
 />
 
 <link rel="canonical" href="{{ page.url | absolute_url }}" />
@@ -23,6 +20,11 @@
 <meta name="robots" content="index, follow" />
 {% endif %}
 
+<!------------ Social Image (robust fallback) ------------>
+{% assign social_image = page.seo.social_image | default:
+site.data.site-settings.seo.social_image | default:
+'/assets/images/the-potato-heroes.png' %}
+
 <!------------ Open Graph ------------>
 <meta
   property="og:title"
@@ -32,10 +34,9 @@
   property="og:description"
   content="{{ page.seo.description | default: site.description }}"
 />
-<meta
-  property="og:image"
-  content="{{ page.seo.social_image | default: site.data.site-settings.seo.social_image | absolute_url }}"
-/>
+<meta property="og:image" content="{{ social_image | absolute_url }}" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
 <meta property="og:url" content="{{ page.url | absolute_url }}" />
 <meta property="og:type" content="website" />
 <meta
@@ -56,10 +57,7 @@
   name="twitter:description"
   content="{{ page.seo.description | default: site.description }}"
 />
-<meta
-  name="twitter:image"
-  content="{{ page.seo.social_image | default: site.data.site-settings.seo.social_image | absolute_url }}"
-/>
+<meta name="twitter:image" content="{{ social_image | absolute_url }}" />
 
 <!------------ Favicon ------------>
 <link rel="icon" href="{{ '/assets/images/favico.png' | relative_url }}" />
@@ -71,15 +69,36 @@
 <link
   href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap"
   rel="stylesheet"
+  media="print"
+  onload="this.media = 'all'"
 />
 <link
   href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap"
   rel="stylesheet"
+  media="print"
+  onload="this.media = 'all'"
 />
 <link
   href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap"
   rel="stylesheet"
+  media="print"
+  onload="this.media = 'all'"
 />
+
+<noscript>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap"
+    rel="stylesheet"
+  />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+</noscript>
 
 <!------------ Font Awesome ------------>
 <link

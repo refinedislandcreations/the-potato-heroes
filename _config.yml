@@ -19,7 +19,7 @@
 # in the templates via {{ site.myvariable }}.
 
 # Default image for social sharing
-og_image: /assets/images/og-image.jpg
+og_image: /assets/images/the-potato-heroes.png
 
 title: The Potato Heroes
 email: proudpotatopeeler@gmail.com
