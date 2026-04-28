@@ -24,9 +24,7 @@ og_image: /assets/images/the-potato-heroes.png
 title: The Potato Heroes
 email: proudpotatopeeler@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
+  Where mornings smell like butter and warm air, creativity comes to life through slow baking and bold flavors. From handcrafted sourdoughs and pastries to nostalgic, globally inspired dishes and chef-crafted cocktails—every experience is rooted in heart, playfulness, and craft.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://thepotatoheroes.com" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: jekyllrb
