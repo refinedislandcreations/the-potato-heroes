@@ -122,7 +122,7 @@ team:
 
         <p class="text-sm text-[#7A4634] uppercase mb-6">{{ member.role }}</p>
 
-        <img
+        <img loading="lazy" decoding="async"
           src="{{ member.image | relative_url }}"
           class="w-full aspect-[4/3] object-cover rounded-lg shadow-lg mb-6"
           alt="{{ member.name }}"
@@ -141,7 +141,7 @@ team:
       <div class="grid md:grid-cols-2 gap-8 items-center">
         {% if is_even == 0 %}
         <!-- IMAGE LEFT -->
-        <img
+        <img loading="lazy" decoding="async"
           src="{{ member.image | relative_url }}"
           class="w-full aspect-[4/3] object-cover rounded-lg shadow-lg"
           alt="{{ member.name }}"
@@ -178,7 +178,7 @@ team:
         </div>
 
         <!-- IMAGE RIGHT -->
-        <img
+        <img loading="lazy" decoding="async"
           src="{{ member.image | relative_url }}"
           class="w-full aspect-[4/3] object-cover rounded-lg shadow-lg"
           alt="{{ member.name }}"

@@ -5,13 +5,13 @@
   >
     <a href="{{ '/' | relative_url }}">
       {% if page.url contains 'alani' %}
-      <img
+      <img loading="lazy" decoding="async"
         src="{{ '/assets/images/alani.svg' | relative_url }}"
         alt="Alani"
         class="h-6 md:h-8"
       />
       {% elsif page.url contains 'proud-potato-peeler' %}
-      <img
+      <img loading="lazy" decoding="async"
         src="{{ '/assets/images/logo-proud-potato.svg' | relative_url }}"
         alt="Proud Potato"
         class="h-6 md:h-8"
