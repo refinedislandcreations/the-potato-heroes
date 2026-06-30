@@ -7,7 +7,7 @@
     "tw:build": "npx tailwindcss -i assets/css/input.css -o assets/css/output.css --minify",
     "jekyll": "bundle exec jekyll serve",
     "dev": "concurrently -k \"npm:tw:watch\" \"npm:jekyll\"",
-    "build": "npm run tw:build && bundle exec jekyll build"
+    "build": "JEKYLL_ENV=production npm run tw:build && bundle exec jekyll build"
   },
   "keywords": [],
   "author": "",
